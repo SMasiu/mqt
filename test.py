@@ -55,18 +55,18 @@ def test():
         if not should(result, correct_answer):
             failed.append([operations, correct_answer])
             print("\033[91mTest failed on input {} {} {}. Given output {} Expected output {}".format(
-                operations[0].value,
+                operations[0].value_to_str(),
                 operations[1],
-                operations[2].value,
-                result.value,
-                correct_answer.value
+                operations[2].value_to_str(),
+                result.value_to_str(),
+                correct_answer.value_to_str()
             ))
         else:
             print("\033[92mTest passed on input {} {} {}. Given output {}".format(
-                operations[0].value,
+                operations[0].value_to_str(),
                 operations[1],
-                operations[2].value,
-                result.value
+                operations[2].value_to_str(),
+                result.value_to_str()
             ))
             passed += 1
 

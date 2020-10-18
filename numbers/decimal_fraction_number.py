@@ -5,6 +5,7 @@ from numbers.number_types import MQT_DECIMAL_FRACTION
 class MqtDecimalFraction(MqtNumber):
     __type = MQT_DECIMAL_FRACTION
 
+    @property
     def type(self):
         return self.__type
 
@@ -15,11 +16,8 @@ class MqtDecimalFraction(MqtNumber):
     def __init__(self, value: float):
         self.__value = value
 
-    def add(self, other):
-        pass
-
-    def subtract(self, other):
-        pass
+    def value_to_str(self) -> str:
+        return str(self.value)
 
     def multiply(self, other):
         pass

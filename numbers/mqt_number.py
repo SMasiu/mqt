@@ -1,20 +1,31 @@
 from abc import ABC, abstractmethod
+from math_operations.addition import addition_matching
+from math_operations.subtraction import subtraction_matching
 
 
 class MqtNumber(ABC):
-    __type = None
+    __type: str
+    __is_negative: bool
 
     @property
     def type(self):
         return self.__type
 
-    @abstractmethod
-    def add(self, other):
-        pass
+    @property
+    def is_negative(self) -> bool:
+        return self.__is_negative
 
     @abstractmethod
-    def subtract(self, other):
+    def value_to_str(self) -> str:
         pass
+
+    # --- arithmetic operations ---
+
+    def add(self, other):
+        return addition_matching.use_operation(self.type, other.type)(self, other)
+
+    def subtract(self, other):
+        return subtraction_matching.use_operation(self.type, other.type)(self, other)
 
     @abstractmethod
     def multiply(self, other):
