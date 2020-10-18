@@ -13,6 +13,10 @@ def calculate_result(operations):
         return num1 + num2
     elif sign == '-':
         return num1 - num2
+    elif sign == '*':
+        return num1 * num2
+    elif sign == '/':
+        return num1 / num2
 
 
 def test():
@@ -21,6 +25,7 @@ def test():
     num_int2 = MqtInt(0)
     num_int3 = MqtInt(-25)
     num_int4 = MqtInt(122)
+    num_int5 = MqtInt(4)
 
     num_fraction1 = MqtFraction(MqtInt(2), MqtInt(5))
     num_fraction2 = MqtFraction(MqtInt(-5), MqtInt(9))
@@ -43,6 +48,15 @@ def test():
         [(num_int1, '-', num_int3), MqtInt(45)],
         [(num_int1, '-', num_int2), MqtInt(20)],
         [(num_int2, '-', num_int1), MqtInt(-20)],
+
+        [(num_int1, '*', num_int5), MqtInt(80)],
+        [(num_int5, '*', num_int1), MqtInt(80)],
+        [(num_int3, '*', num_int5), MqtInt(-100)],
+        [(num_int5, '*', num_int3), MqtInt(-100)],
+        [(num_int4, '*', num_int2), MqtInt(0)],
+        [(num_int2, '*', num_int4), MqtInt(0)],
+        [(num_int3, '*', num_int2), MqtInt(0)],
+        [(num_int2, '*', num_int3), MqtInt(0)],
     ]
 
     # --- test output ---

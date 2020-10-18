@@ -3,7 +3,8 @@ from numbers.number_types import MQT_INT, MQT_FRACTION, MQT_DECIMAL_FRACTION
 
 
 def multiply_int_by_int(number1, number2):
-    pass
+    from numbers.int_number import MqtInt
+    return MqtInt(number1.value * number2.value)
 
 
 def multiply_fraction_by_int(number1, number2):

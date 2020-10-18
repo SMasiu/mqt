@@ -25,9 +25,3 @@ class MqtFraction(MqtNumber):
 
     def value_to_str(self) -> str:
         return json.dumps({'numerator': self.numerator, 'denominator': self.denominator})
-
-    def multiply(self, other):
-        pass
-
-    def divide(self, other):
-        pass

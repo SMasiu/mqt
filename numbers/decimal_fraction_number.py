@@ -18,9 +18,3 @@ class MqtDecimalFraction(MqtNumber):
 
     def value_to_str(self) -> str:
         return str(self.value)
-
-    def multiply(self, other):
-        pass
-
-    def divide(self, other):
-        pass

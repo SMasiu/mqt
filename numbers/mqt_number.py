@@ -1,6 +1,8 @@
 from abc import ABC, abstractmethod
 from math_operations.addition import addition_matching
 from math_operations.subtraction import subtraction_matching
+from math_operations.multiplication import multiplication_matching
+from math_operations.division import division_matching
 
 
 class MqtNumber(ABC):
@@ -27,13 +29,11 @@ class MqtNumber(ABC):
     def subtract(self, other):
         return subtraction_matching.use_operation(self.type, other.type)(self, other)
 
-    @abstractmethod
     def multiply(self, other):
-        pass
+        return multiplication_matching.use_operation(self.type, other.type)(self, other)
 
-    @abstractmethod
     def divide(self, other):
-        pass
+        return division_matching.use_operation(self.type, other.type)(self, other)
 
     # operation +
     def __add__(self, other):

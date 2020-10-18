@@ -18,9 +18,3 @@ class MqtInt(MqtNumber):
 
     def value_to_str(self) -> str:
         return str(self.value)
-
-    def multiply(self, other):
-        return MqtInt(4)
-
-    def divide(self, other):
-        return MqtInt(3)
