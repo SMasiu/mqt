@@ -1,5 +1,7 @@
 from common.operation_matching import Operation, OperationMatching
 from numbers.number_types import MQT_INT, MQT_FRACTION, MQT_DECIMAL_FRACTION
+from transformations.bring_down_to_common_denominator import bring_down_to_common_denominator
+from transformations.reduce_fraction import reduce_fraction
 
 
 def add_int_to_int(number1, number2):
@@ -12,7 +14,20 @@ def add_fraction_to_int(number1, number2):
 
 
 def add_fraction_to_fraction(number1, number2):
-    pass
+    from numbers.fraction_number import MqtFraction
+    from numbers.int_number import MqtInt
+    if number1.denominator == number2.denominator:
+        return reduce_fraction(MqtFraction({
+            'numerator': MqtInt((number1.numerator + number2.numerator).value),
+            'denominator': MqtInt(number1.denominator.value)
+        }))
+
+    num1, num2 = bring_down_to_common_denominator(number1, number2)
+
+    return reduce_fraction(MqtFraction({
+        'numerator': MqtInt((num1.numerator + num2.numerator).value),
+        'denominator': MqtInt(num1.denominator.value)
+    }))
 
 
 def add_decimal_fraction_to_int(number1, number2):
