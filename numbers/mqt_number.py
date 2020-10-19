@@ -3,6 +3,7 @@ from math_operations.addition import addition_matching
 from math_operations.subtraction import subtraction_matching
 from math_operations.multiplication import multiplication_matching
 from math_operations.division import division_matching
+from comparison.equality import equality_matching
 
 
 class MqtNumber(ABC):
@@ -35,6 +36,9 @@ class MqtNumber(ABC):
     def divide(self, other):
         return division_matching.use_operation(self.type, other.type)(self, other)
 
+    def equals(self, other):
+        return equality_matching.use_operation(self.type, other.type)(self, other)
+
     # operation +
     def __add__(self, other):
         return self.add(other)
@@ -53,7 +57,7 @@ class MqtNumber(ABC):
 
     # operation =
     def __eq__(self, other):
-        pass
+        return self.equals(other)
 
     # operation !=
     def __ne__(self, other):

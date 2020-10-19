@@ -1,5 +1,4 @@
 import json
-from numbers.int_number import MqtInt
 from numbers.number_types import MQT_FRACTION
 from numbers.mqt_number import MqtNumber
 
@@ -19,9 +18,9 @@ class MqtFraction(MqtNumber):
     def denominator(self):
         return self.__denominator
 
-    def __init__(self, numerator: MqtInt, denominator: MqtInt):
-        self.__numerator = numerator
-        self.__denominator = denominator
+    def __init__(self, fraction):
+        self.__numerator = fraction['numerator']
+        self.__denominator = fraction['denominator']
 
     def value_to_str(self) -> str:
-        return json.dumps({'numerator': self.numerator, 'denominator': self.denominator})
+        return json.dumps({'numerator': self.numerator.value, 'denominator': self.denominator.value})
