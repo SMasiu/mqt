@@ -1,6 +1,8 @@
 from common.operation_matching import Operation, OperationMatching
 from numbers.number_types import MQT_INT, MQT_FRACTION, MQT_DECIMAL_FRACTION
 from operations.greatest_common_divisor import greatest_common_divisor
+from transformations.reduce_fraction import reduce_fraction
+from transformations.reverse_fraction import reverse_fraction
 
 
 def divide_int_by_int(number1, number2):
@@ -29,7 +31,14 @@ def divide_fraction_by_int(number1, number2):
 
 
 def divide_fraction_by_fraction(number1, number2):
-    pass
+    from numbers.fraction_number import MqtFraction
+
+    reversed_number = reverse_fraction(number2)
+
+    return reduce_fraction(MqtFraction({
+        'numerator': number1.numerator * reversed_number.numerator,
+        'denominator': number1.denominator * reversed_number.denominator
+    }))
 
 
 def divide_decimal_fraction_by_int(number1, number2):

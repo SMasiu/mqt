@@ -15,18 +15,18 @@ def subtract_fraction_from_int(number1, number2):
 
 def subtract_fraction_from_fraction(number1, number2):
     from numbers.fraction_number import MqtFraction
-    from numbers.int_number import MqtInt
+
     if number1.denominator == number2.denominator:
         return reduce_fraction(MqtFraction({
-            'numerator': MqtInt((number1.numerator - number2.numerator).value),
-            'denominator': MqtInt(number1.denominator.value)
+            'numerator': number1.numerator - number2.numerator,
+            'denominator': number1.denominator
         }))
 
     num1, num2 = bring_down_to_common_denominator(number1, number2)
 
     return reduce_fraction(MqtFraction({
-        'numerator': MqtInt((num1.numerator - num2.numerator).value),
-        'denominator': MqtInt(num1.denominator.value)
+        'numerator': num1.numerator - num2.numerator,
+        'denominator': num1.denominator
     }))
 
 

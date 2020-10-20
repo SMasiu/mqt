@@ -14,11 +14,10 @@ def multiply_fraction_by_int(number1, number2):
 
 def multiply_fraction_by_fraction(number1, number2):
     from numbers.fraction_number import MqtFraction
-    from numbers.int_number import MqtInt
 
     return reduce_fraction(MqtFraction({
-        'numerator': MqtInt((number1.numerator * number2.numerator).value),
-        'denominator': MqtInt((number1.denominator * number2.denominator).value)
+        'numerator': number1.numerator * number2.numerator,
+        'denominator': number1.denominator * number2.denominator
     }))
 
 

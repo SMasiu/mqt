@@ -98,6 +98,13 @@ def test():
         [(num_fraction1, '*', num_fraction9), MqtInt(0)],
         [(num_fraction6, '*', num_fraction10), MqtFraction({'numerator': MqtInt(4), 'denominator': MqtInt(9)})],
         [(num_fraction10, '*', num_fraction10), MqtFraction({'numerator': MqtInt(4), 'denominator': MqtInt(9)})],
+
+        [(num_fraction1, '/', num_fraction2), MqtFraction({'numerator': MqtInt(8), 'denominator': MqtInt(15)})],
+        [(num_fraction2, '/', num_fraction3), MqtFraction({'numerator': MqtInt(-27), 'denominator': MqtInt(20)})],
+        [(num_fraction4, '/', num_fraction6), MqtFraction({'numerator': MqtInt(-3), 'denominator': MqtInt(5)})],
+        [(num_fraction3, '/', num_fraction4), MqtFraction({'numerator': MqtInt(25), 'denominator': MqtInt(18)})],
+        [(num_fraction6, '/', num_fraction10), MqtInt(1)],
+        [(num_fraction10, '/', num_fraction10), MqtInt(1)],
     ]
 
     # --- test output ---
