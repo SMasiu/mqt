@@ -37,6 +37,8 @@ def test():
     num_fraction6 = MqtFraction({'numerator': MqtInt(2), 'denominator': MqtInt(3)})
     num_fraction7 = MqtFraction({'numerator': MqtInt(4), 'denominator': MqtInt(3)})
     num_fraction8 = MqtFraction({'numerator': MqtInt(1), 'denominator': MqtInt(9)})
+    num_fraction9 = MqtFraction({'numerator': MqtInt(0), 'denominator': MqtInt(3)})
+    num_fraction10 = MqtFraction({'numerator': MqtInt(-2), 'denominator': MqtInt(-3)})
 
     num_decimal_fraction1 = MqtDecimalFraction(0.235)
     num_decimal_fraction2 = MqtDecimalFraction(-0.12)
@@ -88,6 +90,14 @@ def test():
         [(num_fraction6, '-', num_fraction3), MqtFraction({'numerator': MqtInt(11), 'denominator': MqtInt(9)})],
         [(num_fraction7, '-', num_fraction5), MqtInt(1)],
         [(num_fraction3, '-', num_fraction8), MqtFraction({'numerator': MqtInt(-2), 'denominator': MqtInt(3)})],
+
+        [(num_fraction1, '*', num_fraction2), MqtFraction({'numerator': MqtInt(3), 'denominator': MqtInt(10)})],
+        [(num_fraction2, '*', num_fraction3), MqtFraction({'numerator': MqtInt(-5), 'denominator': MqtInt(12)})],
+        [(num_fraction4, '*', num_fraction6), MqtFraction({'numerator': MqtInt(-4), 'denominator': MqtInt(15)})],
+        [(num_fraction3, '*', num_fraction4), MqtFraction({'numerator': MqtInt(2), 'denominator': MqtInt(9)})],
+        [(num_fraction1, '*', num_fraction9), MqtInt(0)],
+        [(num_fraction6, '*', num_fraction10), MqtFraction({'numerator': MqtInt(4), 'denominator': MqtInt(9)})],
+        [(num_fraction10, '*', num_fraction10), MqtFraction({'numerator': MqtInt(4), 'denominator': MqtInt(9)})],
     ]
 
     # --- test output ---

@@ -1,5 +1,6 @@
 from common.operation_matching import Operation, OperationMatching
 from numbers.number_types import MQT_INT, MQT_FRACTION, MQT_DECIMAL_FRACTION
+from transformations.reduce_fraction import reduce_fraction
 
 
 def multiply_int_by_int(number1, number2):
@@ -12,7 +13,13 @@ def multiply_fraction_by_int(number1, number2):
 
 
 def multiply_fraction_by_fraction(number1, number2):
-    pass
+    from numbers.fraction_number import MqtFraction
+    from numbers.int_number import MqtInt
+
+    return reduce_fraction(MqtFraction({
+        'numerator': MqtInt((number1.numerator * number2.numerator).value),
+        'denominator': MqtInt((number1.denominator * number2.denominator).value)
+    }))
 
 
 def multiply_decimal_fraction_by_int(number1, number2):
